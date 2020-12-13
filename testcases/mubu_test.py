@@ -801,7 +801,7 @@ class TestCaseMubu(HttpRunner):
                                 },
                                 {
                                     "name": "nameChanged",
-                                    "title": "demo",
+                                    "title": "${gen_random_string(10)}",
                                     "original": "dem",
                                 },
                             ],
