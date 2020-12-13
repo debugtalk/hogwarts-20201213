@@ -34,3 +34,7 @@ def get_folders_num(resp: ResponseObject) -> int:
     folders_num = len(resp_json["data"]["folders"])
     print(f"folders_num: {folders_num}")
     return folders_num
+
+
+def get_memberId_list():
+    return ["1715103091276471", "1715103091276472"]
