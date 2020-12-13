@@ -29,7 +29,10 @@ class TestCaseMubuCreateDoc(HttpRunner):
     teststeps = [
         Step(
             RunTestCase("login")
-            .with_variables(**{})
+            .with_variables(**{
+                "phone": "18613143458",
+                "password": "mtFrwy$!kt3RTRq@QpqW",
+            })
             .call(MubuLogin)
             .export("jwt_token", "user_persistence", "userId")
         ),
