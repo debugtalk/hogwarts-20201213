@@ -117,6 +117,9 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/api/login/submit")
+            .with_variables(**{
+                "remember": "true",
+            })
             .post("https://${host}/api/login/submit")
             .with_headers(
                 **{
@@ -150,7 +153,7 @@ class TestCaseMubu(HttpRunner):
                 {
                     "phone": "$phone",
                     "password": "$password",
-                    "remember": "true",
+                    "remember": "$remember",
                 }
             )
             .extract()
