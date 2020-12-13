@@ -150,6 +150,7 @@ class TestCaseMubu(HttpRunner):
             )
             .extract()
             .with_jmespath('cookies."Jwt-Token"', "jwt_token")
+            .with_jmespath('cookies.user_persistence', "user_persistence")
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -183,7 +184,7 @@ class TestCaseMubu(HttpRunner):
                     "use-redesign": "1",
                     "_gat": "1",
                     "Jwt-Token": "$jwt_token",
-                    "user_persistence": "98f3e157-7fcc-42b4-b303-eed91ae5fac7",
+                    "user_persistence": "$user_persistence",
                 }
             )
             .validate()
