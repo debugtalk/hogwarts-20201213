@@ -81,6 +81,7 @@ class TestCaseMubu(HttpRunner):
                     "reg_entrance": "https%3A%2F%2F${host}%2F",
                 }
             )
+            .teardown_hook("${sleep(1)}")
             .validate()
             .assert_equal("status_code", 200)
         ),
