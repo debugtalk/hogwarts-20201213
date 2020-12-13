@@ -163,6 +163,7 @@ class TestCaseMubu(HttpRunner):
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
             .assert_equal("body.msg", None)
+            .assert_equal("body.data.next", "/app")
         ),
         Step(
             RunRequest("/app")
