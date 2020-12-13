@@ -304,9 +304,11 @@ class TestCaseMubu(HttpRunner):
                 }
             )
             .with_json({"start": ""})
+            .teardown_hook("${get_folders_num($response)}", "folders_num")
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
+            .assert_greater_than("$folders_num", 20)
         ),
         Step(
             RunRequest("/v3/api/user/get_user_params")
