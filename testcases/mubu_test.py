@@ -15,7 +15,7 @@ class TestCaseMubu(HttpRunner):
             "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
             "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
             "memberId": "1715103091276471",
-            "host": "mubu.com",
+            "host": "${get_test_host()}",
         })
     )
 
