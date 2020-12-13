@@ -16,6 +16,8 @@ class TestCaseMubu(HttpRunner):
             "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
             "memberId": "1715103091276471",
             "host": "${get_test_host()}",
+            "phone": "18613143458",
+            "password": "mtFrwy$!kt3RTRq@QpqW",
         })
     )
 
@@ -146,8 +148,8 @@ class TestCaseMubu(HttpRunner):
             )
             .with_data(
                 {
-                    "phone": "18613143458",
-                    "password": "mtFrwy$!kt3RTRq@QpqW",
+                    "phone": "$phone",
+                    "password": "$password",
                     "remember": "true",
                 }
             )
