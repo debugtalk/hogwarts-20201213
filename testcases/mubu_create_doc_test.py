@@ -7,7 +7,7 @@ from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
 from testcases.mubu_login_test import TestCaseMubuLogin as MubuLogin
 
 
-class TestCaseMubu(HttpRunner):
+class TestCaseMubuCreateDoc(HttpRunner):
 
     config = (
         Config("testcase description")
@@ -1009,4 +1009,4 @@ class TestCaseMubu(HttpRunner):
 
 
 if __name__ == "__main__":
-    TestCaseMubu().test_start()
+    TestCaseMubuCreateDoc().test_start()
