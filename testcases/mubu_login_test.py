@@ -18,6 +18,7 @@ class TestCaseMubuLogin(HttpRunner):
             "phone": "18613143458",
             "password": "mtFrwy$!kt3RTRq@QpqW",
         })
+        .export("jwt_token", "user_persistence", "userId")
     )
 
     teststeps = [

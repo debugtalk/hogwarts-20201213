@@ -13,20 +13,25 @@ class TestCaseMubu(HttpRunner):
         Config("testcase description")
         .base_url("https://api2.$host")
         .verify(False)
-        .variables(**{
-            "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
-            "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
-            "memberId": "1715103091276471",
-            "host": "${get_test_host()}",
-            "phone": "18613143458",
-            "password": "mtFrwy$!kt3RTRq@QpqW",
-            "folderId": "4KAuxHhR1xs",
-        })
+        .variables(
+            **{
+                "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
+                "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
+                "memberId": "1715103091276471",
+                "host": "${get_test_host()}",
+                "phone": "18613143458",
+                "password": "mtFrwy$!kt3RTRq@QpqW",
+                "folderId": "4KAuxHhR1xs",
+            }
+        )
     )
 
     teststeps = [
         Step(
-            RunTestCase("login").with_variables(**{}).call(MubuLogin)
+            RunTestCase("login")
+            .with_variables(**{})
+            .call(MubuLogin)
+            .export("jwt_token", "user_persistence", "userId")
         ),
         Step(
             RunRequest("/v3/api/list/get_all_documents_page")
