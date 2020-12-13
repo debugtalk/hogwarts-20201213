@@ -18,6 +18,7 @@ class TestCaseMubu(HttpRunner):
             "host": "${get_test_host()}",
             "phone": "18613143458",
             "password": "mtFrwy$!kt3RTRq@QpqW",
+            "folderId": "4KAuxHhR1xs",
         })
     )
 
@@ -308,7 +309,7 @@ class TestCaseMubu(HttpRunner):
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
-            .assert_greater_than("$folders_num", 20)
+            .assert_greater_than("$folders_num", 10)
         ),
         Step(
             RunRequest("/v3/api/user/get_user_params")
@@ -441,36 +442,36 @@ class TestCaseMubu(HttpRunner):
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
         ),
-        Step(
-            RunRequest("/v3/api/list/create_folder")
-            .post("/v3/api/list/create_folder")
-            .with_headers(
-                **{
-                    "content-length": "39",
-                    "accept": "application/json, text/plain, */*",
-                    "jwt-token": "$jwt_token",
-                    "content-type": "application/json;charset=UTF-8",
-                    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
-                    "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "x-request-id": "${gen_random_request_id()}",
-                    "version": "3.0.0",
-                    "origin": "https://${host}",
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                    "referer": "https://${host}/",
-                    "accept-encoding": "gzip, deflate, br",
-                    "accept-language": "en-US,en;q=0.9",
-                }
-            )
-            .with_json({"name": "hogwarts-demo", "folderId": "0"})
-            .extract()
-            .with_jmespath("headers.server", "server")
-            .with_jmespath("body.data.folder.id", "folderId")
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
+        # Step(
+        #     RunRequest("/v3/api/list/create_folder")
+        #     .post("/v3/api/list/create_folder")
+        #     .with_headers(
+        #         **{
+        #             "content-length": "39",
+        #             "accept": "application/json, text/plain, */*",
+        #             "jwt-token": "$jwt_token",
+        #             "content-type": "application/json;charset=UTF-8",
+        #             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+        #             "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
+        #             "x-request-id": "${gen_random_request_id()}",
+        #             "version": "3.0.0",
+        #             "origin": "https://${host}",
+        #             "sec-fetch-site": "same-site",
+        #             "sec-fetch-mode": "cors",
+        #             "sec-fetch-dest": "empty",
+        #             "referer": "https://${host}/",
+        #             "accept-encoding": "gzip, deflate, br",
+        #             "accept-language": "en-US,en;q=0.9",
+        #         }
+        #     )
+        #     .with_json({"name": "hogwarts-demo", "folderId": "0"})
+        #     .extract()
+        #     .with_jmespath("headers.server", "server")
+        #     .with_jmespath("body.data.folder.id", "folderId")
+        #     .validate()
+        #     .assert_equal("status_code", 200)
+        #     .assert_equal("body.code", 0)
+        # ),
         Step(
             RunRequest("/v3/api/list/item_count")
             .post("/v3/api/list/item_count")
