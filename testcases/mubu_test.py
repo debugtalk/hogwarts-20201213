@@ -12,6 +12,7 @@ class TestCaseMubu(HttpRunner):
         .verify(False)
         .variables(**{
             "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
+            "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
         })
     )
 
@@ -35,7 +36,7 @@ class TestCaseMubu(HttpRunner):
             .with_cookies(
                 **{
                     "data_unique_id": "$data_unique_id",
-                    "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
+                    "csrf_token": "$csrf_token",
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
@@ -76,7 +77,7 @@ class TestCaseMubu(HttpRunner):
             .with_cookies(
                 **{
                     "data_unique_id": "$data_unique_id",
-                    "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
+                    "csrf_token": "$csrf_token",
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
@@ -117,7 +118,7 @@ class TestCaseMubu(HttpRunner):
             .with_cookies(
                 **{
                     "data_unique_id": "$data_unique_id",
-                    "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
+                    "csrf_token": "$csrf_token",
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
@@ -159,7 +160,7 @@ class TestCaseMubu(HttpRunner):
             .with_cookies(
                 **{
                     "data_unique_id": "$data_unique_id",
-                    "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
+                    "csrf_token": "$csrf_token",
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
@@ -208,7 +209,7 @@ class TestCaseMubu(HttpRunner):
             .with_cookies(
                 **{
                     "data_unique_id": "$data_unique_id",
-                    "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
+                    "csrf_token": "$csrf_token",
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
