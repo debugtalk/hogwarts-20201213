@@ -9,19 +9,20 @@ class TestCaseMubu(HttpRunner):
 
     config = (
         Config("testcase description")
-        .base_url("https://api2.mubu.com")
+        .base_url("https://api2.$host")
         .verify(False)
         .variables(**{
             "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
             "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
-            "memberId": "1715103091276471"
+            "memberId": "1715103091276471",
+            "host": "mubu.com",
         })
     )
 
     teststeps = [
         Step(
             RunRequest("/")
-            .get("https://mubu.com/")
+            .get("https://${host}/")
             .with_headers(
                 **{
                     "upgrade-insecure-requests": "1",
@@ -42,7 +43,7 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "reg_entrance": "https%3A%2F%2F${host}%2F",
                     "use-redesign": "1",
                     "_gat_UA-77727571-3": "1",
                     "_gat": "1",
@@ -53,7 +54,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/login")
-            .get("https://mubu.com/login")
+            .get("https://${host}/login")
             .with_headers(
                 **{
                     "upgrade-insecure-requests": "1",
@@ -63,7 +64,7 @@ class TestCaseMubu(HttpRunner):
                     "sec-fetch-mode": "navigate",
                     "sec-fetch-user": "?1",
                     "sec-fetch-dest": "document",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -75,7 +76,7 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "reg_entrance": "https%3A%2F%2F${host}%2F",
                 }
             )
             .validate()
@@ -83,7 +84,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/login/password")
-            .get("https://mubu.com/login/password")
+            .get("https://${host}/login/password")
             .with_headers(
                 **{
                     "upgrade-insecure-requests": "1",
@@ -93,7 +94,7 @@ class TestCaseMubu(HttpRunner):
                     "sec-fetch-mode": "navigate",
                     "sec-fetch-user": "?1",
                     "sec-fetch-dest": "document",
-                    "referer": "https://mubu.com/login",
+                    "referer": "https://${host}/login",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -105,7 +106,7 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "reg_entrance": "https%3A%2F%2F${host}%2F",
                     "use-redesign": "1",
                 }
             )
@@ -114,7 +115,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/api/login/submit")
-            .post("https://mubu.com/api/login/submit")
+            .post("https://${host}/api/login/submit")
             .with_headers(
                 **{
                     "content-length": "65",
@@ -122,11 +123,11 @@ class TestCaseMubu(HttpRunner):
                     "x-requested-with": "XMLHttpRequest",
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
                     "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-origin",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/login/password",
+                    "referer": "https://${host}/login/password",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -138,7 +139,7 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "reg_entrance": "https%3A%2F%2F${host}%2F",
                     "use-redesign": "1",
                     "_gat": "1",
                 }
@@ -160,7 +161,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/app")
-            .get("https://mubu.com/app")
+            .get("https://${host}/app")
             .with_headers(
                 **{
                     "upgrade-insecure-requests": "1",
@@ -170,7 +171,7 @@ class TestCaseMubu(HttpRunner):
                     "sec-fetch-mode": "navigate",
                     "sec-fetch-user": "?1",
                     "sec-fetch-dest": "document",
-                    "referer": "https://mubu.com/login/password",
+                    "referer": "https://${host}/login/password",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -182,7 +183,7 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "reg_entrance": "https%3A%2F%2F${host}%2F",
                     "use-redesign": "1",
                     "_gat": "1",
                     "Jwt-Token": "$jwt_token",
@@ -202,7 +203,7 @@ class TestCaseMubu(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "no-cors",
                     "sec-fetch-dest": "image",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -230,11 +231,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -256,11 +257,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -285,11 +286,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -311,11 +312,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -336,11 +337,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -362,11 +363,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -389,11 +390,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -416,11 +417,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -443,11 +444,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -473,11 +474,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -500,11 +501,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -529,11 +530,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -556,11 +557,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -583,11 +584,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -608,11 +609,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -631,11 +632,11 @@ class TestCaseMubu(HttpRunner):
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -653,12 +654,12 @@ class TestCaseMubu(HttpRunner):
                     "accept": "*/*",
                     "access-control-request-method": "GET",
                     "access-control-request-headers": "data-unique-id,jwt-token,request-id,x-request-id",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -678,11 +679,11 @@ class TestCaseMubu(HttpRunner):
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -706,11 +707,11 @@ class TestCaseMubu(HttpRunner):
                     "request-id": "MESSAGE:${userId}:${memberId}:3",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -760,11 +761,11 @@ class TestCaseMubu(HttpRunner):
                     "request-id": "MESSAGE:${userId}:${memberId}:6",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -822,11 +823,11 @@ class TestCaseMubu(HttpRunner):
                     "request-id": "MESSAGE:${userId}:${memberId}:7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -908,11 +909,11 @@ class TestCaseMubu(HttpRunner):
                     "request-id": "MESSAGE:${userId}:${memberId}:9",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -978,11 +979,11 @@ class TestCaseMubu(HttpRunner):
                     "request-id": "MESSAGE:${userId}:${memberId}:11",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -1046,11 +1047,11 @@ class TestCaseMubu(HttpRunner):
                     "request-id": "MESSAGE:${userId}:${memberId}:13",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -1116,11 +1117,11 @@ class TestCaseMubu(HttpRunner):
                     "request-id": "MESSAGE:${userId}:${memberId}:14",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -1184,11 +1185,11 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
@@ -1213,11 +1214,11 @@ class TestCaseMubu(HttpRunner):
                     "request-id": "MESSAGE:${userId}:${memberId}:17",
                     "x-request-id": "${gen_random_request_id()}",
                     "version": "3.0.0",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9",
                 }
