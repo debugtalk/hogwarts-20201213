@@ -7,7 +7,13 @@ from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
 
 class TestCaseMubu(HttpRunner):
 
-    config = Config("testcase description").verify(False)
+    config = (
+        Config("testcase description")
+        .verify(False)
+        .variables(**{
+            "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
+        })
+    )
 
     teststeps = [
         Step(
@@ -28,7 +34,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_cookies(
                 **{
-                    "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
+                    "data_unique_id": "$data_unique_id",
                     "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
                     "language": "en-US",
                     "country": "US",
@@ -69,7 +75,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_cookies(
                 **{
-                    "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
+                    "data_unique_id": "$data_unique_id",
                     "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
                     "language": "en-US",
                     "country": "US",
@@ -110,7 +116,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_cookies(
                 **{
-                    "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
+                    "data_unique_id": "$data_unique_id",
                     "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
                     "language": "en-US",
                     "country": "US",
@@ -152,7 +158,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_cookies(
                 **{
-                    "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
+                    "data_unique_id": "$data_unique_id",
                     "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
                     "language": "en-US",
                     "country": "US",
@@ -201,7 +207,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_cookies(
                 **{
-                    "data_unique_id": "01302980-5f42-4477-adee-578a099263d9",
+                    "data_unique_id": "$data_unique_id",
                     "csrf_token": "d44043c4-e8e0-4425-893b-2e1465072455",
                     "language": "en-US",
                     "country": "US",
@@ -684,9 +690,7 @@ class TestCaseMubu(HttpRunner):
         Step(
             RunRequest("/v3/api/colla/members")
             .options("https://api2.mubu.com/v3/api/colla/members")
-            .with_params(
-                **{"memberId": "1715103091276471", "documentId": "$docId"}
-            )
+            .with_params(**{"memberId": "1715103091276471", "documentId": "$docId"})
             .with_headers(
                 **{
                     "accept": "*/*",
@@ -708,9 +712,7 @@ class TestCaseMubu(HttpRunner):
         Step(
             RunRequest("/v3/api/colla/members")
             .get("https://api2.mubu.com/v3/api/colla/members")
-            .with_params(
-                **{"memberId": "1715103091276471", "documentId": "$docId"}
-            )
+            .with_params(**{"memberId": "1715103091276471", "documentId": "$docId"})
             .with_headers(
                 **{
                     "accept": "application/json, text/plain, */*",
