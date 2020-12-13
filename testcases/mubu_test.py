@@ -40,18 +40,10 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1607839301",
                     "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
-                    "_ga": "GA1.2.517603191.1607839302",
-                    "_gid": "GA1.2.1969523483.1607839302",
-                    "reg_prepareId": "1765ab60f7d-1765ab60e81-4572-b27a-d4ea0c1a5b9f",
-                    "reg_focusId": "59e3df3d-7d53-4572-b27a-1765ab6148f",
                     "use-redesign": "1",
                     "_gat_UA-77727571-3": "1",
-                    "SESSION": "2689b880-46b2-40b9-b63b-89332adfa410",
-                    "SLARDAR_WEB_ID": "5ab10989-9335-420f-932d-2255be13c9fd",
                     "_gat": "1",
-                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1607839822",
                 }
             )
             .validate()
@@ -81,18 +73,7 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1607839301",
                     "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
-                    "_ga": "GA1.2.517603191.1607839302",
-                    "_gid": "GA1.2.1969523483.1607839302",
-                    "reg_prepareId": "1765ab60f7d-1765ab60e81-4572-b27a-d4ea0c1a5b9f",
-                    "reg_focusId": "59e3df3d-7d53-4572-b27a-1765ab6148f",
-                    "use-redesign": "1",
-                    "_gat_UA-77727571-3": "1",
-                    "SESSION": "2689b880-46b2-40b9-b63b-89332adfa410",
-                    "_gat": "1",
-                    "SLARDAR_WEB_ID": "e0508847-05a7-4bbe-ae74-de0e6e6ad076",
-                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1607839835",
                 }
             )
             .validate()
@@ -122,17 +103,8 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1607839301",
                     "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
-                    "_ga": "GA1.2.517603191.1607839302",
-                    "_gid": "GA1.2.1969523483.1607839302",
                     "use-redesign": "1",
-                    "SESSION": "2689b880-46b2-40b9-b63b-89332adfa410",
-                    "_gat": "1",
-                    "SLARDAR_WEB_ID": "b1b8dea7-a136-4040-8ea1-54c846faf78c",
-                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1607839842",
-                    "reg_prepareId": "1765ab8fe62-1765ab8fd1c-477f-be8e-389fe75827db",
-                    "reg_focusId": "9ca61e84-c521-477f-be8e-1765ab90208",
                 }
             )
             .validate()
@@ -164,17 +136,9 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1607839301",
                     "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
-                    "_ga": "GA1.2.517603191.1607839302",
-                    "_gid": "GA1.2.1969523483.1607839302",
                     "use-redesign": "1",
-                    "SESSION": "2689b880-46b2-40b9-b63b-89332adfa410",
                     "_gat": "1",
-                    "reg_prepareId": "1765ab8fe62-1765ab8fd1c-477f-be8e-389fe75827db",
-                    "reg_focusId": "9ca61e84-c521-477f-be8e-1765ab90208",
-                    "SLARDAR_WEB_ID": "2b7089bd-3888-4058-8f2e-26be835123ac",
-                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1607839844",
                 }
             )
             .with_data(
@@ -213,17 +177,9 @@ class TestCaseMubu(HttpRunner):
                     "language": "en-US",
                     "country": "US",
                     "data-unique-id": "ab79efe0-3d08-11eb-8cea-196b8f1199e7",
-                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1607839301",
                     "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
-                    "_ga": "GA1.2.517603191.1607839302",
-                    "_gid": "GA1.2.1969523483.1607839302",
                     "use-redesign": "1",
-                    "SESSION": "2689b880-46b2-40b9-b63b-89332adfa410",
                     "_gat": "1",
-                    "reg_prepareId": "1765ab8fe62-1765ab8fd1c-477f-be8e-389fe75827db",
-                    "reg_focusId": "9ca61e84-c521-477f-be8e-1765ab90208",
-                    "SLARDAR_WEB_ID": "2b7089bd-3888-4058-8f2e-26be835123ac",
-                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1607839844",
                     "Jwt-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMTQ0OTE2NCIsImV4cCI6MTYxMDQzMTg0NiwiaWF0IjoxNjA3ODM5ODQ2fQ.Wj8zWxDskNCkl5U0YVEcku00glmEukoaIiJFvgXikhq5vltViRv39Rp4Z2A9eiAS-UENG-ENKtmWfhwRr6j47w",
                     "user_persistence": "98f3e157-7fcc-42b4-b303-eed91ae5fac7",
                 }
@@ -248,14 +204,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_cookies(
                 **{
-                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1607839301",
-                    "_ga": "GA1.2.517603191.1607839302",
-                    "_gid": "GA1.2.1969523483.1607839302",
                     "use-redesign": "1",
-                    "_gat": "1",
-                    "SLARDAR_WEB_ID": "2b7089bd-3888-4058-8f2e-26be835123ac",
-                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1607839844",
-                    "_gat_UA-77727571-3": "1",
                 }
             )
             .validate()
